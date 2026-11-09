@@ -1,0 +1,39 @@
+{
+  "dataset": "FaceForensics++ (c23 compression)",
+  "test_samples": 200,
+  "split_strategy": "Source-video grouped (zero leakage across splits)",
+  "baseline_resnet50": {
+    "name": "ResNet50 (Initial Frozen Backbone)",
+    "input_size": [224, 224, 3],
+    "accuracy": 0.695,
+    "precision_real": 0.7746,
+    "recall_real": 0.55,
+    "f1_real": 0.6433,
+    "roc_auc": 0.7558,
+    "confusion_matrix": [
+      [84, 16],
+      [45, 55]
+    ]
+  },
+  "finetuned_resnet50": {
+    "name": "ResNet50 (Fine-Tuned Top 30 Layers)",
+    "input_size": [224, 224, 3],
+    "model_size_mb": 203.71,
+    "accuracy": 0.685,
+    "precision_real": 0.7176,
+    "recall_real": 0.61,
+    "f1_real": 0.6595,
+    "roc_auc": 0.7853,
+    "confusion_matrix": [
+      [76, 24],
+      [39, 61]
+    ]
+  },
+  "improvement_summary": {
+    "recall_gain": "+6.00%",
+    "f1_gain": "+1.62%",
+    "roc_auc_gain": "+2.95%",
+    "false_fake_reduction": "Reduced false fakes from 45 down to 39 (13.3% reduction in misclassifying real faces as fakes)"
+  }
+}
+
